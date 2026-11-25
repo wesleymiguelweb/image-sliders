@@ -1,10 +1,24 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>image-slider</title>
+    <script>
+      (() => {
+        try {
+          const stored = localStorage.getItem('wild-stories:theme');
+          const isDark = stored
+            ? stored === 'dark'
+            : window.matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.classList.toggle('dark', isDark);
+          document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+        } catch {
+          // Preferência indisponível: mantém o tema claro.
+        }
+      })();
+    </script>
+    <title>Wild Stories — Galeria da vida selvagem</title>
   </head>
   <body>
     <div id="root"></div>

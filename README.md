@@ -1,16 +1,54 @@
-# React + Vite
+# Wild Stories — Image Slider
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação React + Vite + Tailwind CSS que apresenta um slider de imagens da vida
+selvagem com dados, navegação, internacionalização (PT/EN/ES) e tema claro/escuro.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Slider de 5 imagens com navegação (anterior/próxima), teclado (←/→) e contador.
+- Exibição dinâmica de título, descrição, local e texto alternativo por slide.
+- Internacionalização com `i18next` (Português, English, Español) e seletor de idioma.
+- Tema claro/escuro com persistência e detecção da preferência do sistema.
+- Layout responsivo e acessível (foco visível, `aria-live`, `aria-roledescription`).
 
-## React Compiler
+## Como executar
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+Acesse `http://localhost:5173`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Build de produção
+
+```bash
+npm run build
+npm run preview
+```
+
+## Estrutura principal
+
+```
+src/
+├── App.jsx
+├── main.jsx
+├── index.css
+├── components/
+│   ├── Background.jsx
+│   ├── ImageSlider.jsx
+│   ├── LanguageSwitcher.jsx
+│   ├── SliderControls.jsx
+│   └── ThemeSwitcher.jsx
+├── data/slides.js
+├── hooks/useTheme.js
+└── i18n/
+    ├── index.js
+    └── locales/{pt,en,es}.js
+```
+
+## Limitações
+
+- A referência do Notion informada não pôde ser acessada (erro 429/indisponível).
+  O conteúdo (imagens e textos) foi baseado nos arquivos locais do projeto.
+- Nenhuma API, banco de dados ou serviço externo é utilizado.
